@@ -1,0 +1,140 @@
+@import './tokens.css';
+@import './typography.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-body-text);
+  overflow-x: hidden;
+  /* Smooth scroll is handled by Lenis, avoid CSS smooth scroll as it conflicts */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 71, 255, 0.3);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 71, 255, 0.6);
+}
+
+/* Selection */
+::selection {
+  background: rgba(108, 71, 255, 0.4);
+  color: var(--color-on-background);
+}
+
+/* Lenis recommended styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* GlassCard base styles from instructions */
+.glass-card {
+  background: rgba(10, 10, 26, 0.60);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(108, 71, 255, 0.20);
+  border-radius: var(--radius-2xl); /* 16px */
+  box-shadow: 
+    inset 0 1px 0 rgba(240, 238, 255, 0.05),
+    0 4px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: rgba(108, 71, 255, 0.55);
+  box-shadow: 
+    inset 0 1px 0 rgba(240, 238, 255, 0.08),
+    0 8px 40px rgba(108, 71, 255, 0.15),
+    0 0 0 1px rgba(108, 71, 255, 0.1);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(108, 71, 255, 0.06) 30%,
+    rgba(34, 211, 238, 0.08) 50%,
+    rgba(168, 85, 247, 0.06) 70%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-safe-margin);
+}
+
+#projects-section {
+  padding-bottom: calc(var(--spacing-safe-margin) * 2);
+}
+
+#skills-section {
+  padding-top: calc(var(--spacing-safe-margin) * 2);
+}
+
+.canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-void);
+  pointer-events: none; /* Let clicks pass through to HTML content unless specified */
+}

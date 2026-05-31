@@ -1,0 +1,30 @@
+.skillsSection {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.header {
+  position: absolute;
+  top: var(--spacing-safe-margin);
+  left: var(--spacing-safe-margin);
+  z-index: var(--z-content);
+}
+
+.skillsGrid {
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--spacing-unit) * 2);
+  max-width: 720px;
+  margin: 120px auto 0;
+  padding: 0 var(--spacing-safe-margin);
+}
+
+.skillChip {
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  text-align: center;
+}

@@ -1,0 +1,57 @@
+.aboutSection {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-gutter);
+  align-items: center;
+}
+
+.leftCol {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.statCard {
+  padding: 24px;
+  text-align: center;
+}
+
+.statNumber {
+  font-family: 'Metropolis', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-on-background);
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  color: var(--color-tertiary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .leftCol {
+    height: 300px;
+  }
+}

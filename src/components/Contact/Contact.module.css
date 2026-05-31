@@ -1,0 +1,39 @@
+.contactSection {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+  z-index: var(--z-content);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.contactBtn {
+  margin-top: 24px;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--color-on-background);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  font-family: 'Geist Mono', monospace;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactBtn:hover {
+  background: rgba(108, 71, 255, 0.2);
+  box-shadow: 0 0 24px rgba(108, 71, 255, 0.4);
+}

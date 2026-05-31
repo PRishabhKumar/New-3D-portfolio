@@ -1,0 +1,61 @@
+.heroSection {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-content);
+  padding: var(--spacing-safe-margin);
+}
+
+.heroContent {
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.name {
+  color: var(--color-on-background);
+  margin-bottom: 24px;
+}
+
+.roleContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-tertiary);
+  margin-bottom: 40px;
+  min-height: 40px;
+}
+
+.roleContainer > div {
+  min-width: 200px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.heroCta {
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-on-background);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroCta:hover {
+  background: rgba(108, 71, 255, 0.2);
+}

@@ -1,0 +1,54 @@
+.projectsSection {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.header {
+  position: absolute;
+  top: var(--spacing-safe-margin);
+  left: var(--spacing-safe-margin);
+  z-index: var(--z-content);
+}
+
+.projectOverlay {
+  position: fixed;
+  transform: translateY(-50%);
+  width: 320px;
+  padding: 24px;
+  z-index: var(--z-hud);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(108, 71, 255, 0.1);
+  border: 1px solid rgba(108, 71, 255, 0.3);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.viewBtn {
+  margin-top: 8px;
+  padding: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-full);
+  text-align: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.viewBtn:hover {
+  transform: scale(1.05);
+}
