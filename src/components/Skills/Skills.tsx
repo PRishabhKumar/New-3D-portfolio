@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import styles from './Skills.module.css';
 import { SceneManager } from '../../three/SceneManager';
 import { SkillsScene } from '../../three/scenes/SkillsScene';
-import { skills } from '../../data/skills';
 
 export const Skills: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -20,13 +19,6 @@ export const Skills: React.FC = () => {
       </div>
       <div className={styles.header}>
         <h2 className="headline-md">Skills</h2>
-      </div>
-      <div className={styles.skillsGrid}>
-        {skills.map((skill) => (
-          <div key={skill} className={`glass-card ${styles.skillChip}`}>
-            <span className="label-mono">{skill}</span>
-          </div>
-        ))}
       </div>
     </div>
   );

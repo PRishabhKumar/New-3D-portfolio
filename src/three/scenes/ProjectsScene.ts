@@ -9,6 +9,7 @@ import type { Project } from '../../data/projects';
 export class ProjectsScene extends BaseScene {
   private orbitalRing!: OrbitalRing;
   private targetMouse = new THREE.Vector2(0, 0);
+  private isPointerInside = false;
 
   // Expose hover callback for React component
   public onProjectHover: (project: Project | null, pos?: {x: number, y: number}) => void = () => {};
@@ -42,9 +43,17 @@ export class ProjectsScene extends BaseScene {
   }
 
   private onMouseMove = (e: MouseEvent) => {
+    const rect = this.canvas.getBoundingClientRect();
+    const isInside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+    this.isPointerInside = isInside;
+    if (!isInside) {
+      this.targetMouse.set(-9999, -9999);
+      return;
+    }
+    
     // Update target mouse for raycaster
-    this.targetMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    this.targetMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    this.targetMouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    this.targetMouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     
     // Tilt the whole scene slightly based on mouse
     gsap.to(this.scene.rotation, {
@@ -56,7 +65,11 @@ export class ProjectsScene extends BaseScene {
 
   update(delta: number, _scrollProgress: number) {
     if (this.orbitalRing) {
-      this.orbitalRing.handleMouseMove(this.targetMouse, this.camera);
+      if (this.isPointerInside) {
+        this.orbitalRing.handleMouseMove(this.targetMouse, this.camera);
+      } else {
+        this.orbitalRing.clearHover();
+      }
       this.orbitalRing.update(delta);
     }
     

@@ -1,5 +1,6 @@
 import { Nav } from './components/Nav/Nav'
 import { Hero } from './components/Hero/Hero'
+import { Portal } from './components/Portal/Portal'
 
 import { About } from './components/About/About'
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Nav />
+      <Portal />
       <section id="hero-section">
         <Hero />
       </section>

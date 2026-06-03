@@ -6,10 +6,11 @@ export abstract class BaseScene {
   scene!: THREE.Scene;
   camera!: THREE.PerspectiveCamera;
   composer!: EffectComposer;
-  clock!: THREE.Clock;
   canvas: HTMLCanvasElement;
   isActive: boolean = false;
   isInitialized: boolean = false;
+  private lastTime: number = 0;
+  private elapsedTime: number = 0;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -35,7 +36,19 @@ export abstract class BaseScene {
     
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.clock = new THREE.Clock();
+    this.lastTime = performance.now();
+  }
+
+  public getDelta(): number {
+    const time = performance.now();
+    const delta = (time - this.lastTime) / 1000;
+    this.lastTime = time;
+    return delta;
+  }
+
+  public getElapsedTime(): number {
+    this.elapsedTime += this.getDelta();
+    return this.elapsedTime;
   }
 
   resize(): void {

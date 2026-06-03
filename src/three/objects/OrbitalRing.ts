@@ -99,11 +99,15 @@ export class OrbitalRing {
         this.hoverCard(card, camera);
       }
     } else {
-      if (this.hoveredCard) {
-        this.unhoverCard(this.hoveredCard);
-        this.hoveredCard = null;
-        this.onHover(null);
-      }
+      this.clearHover();
+    }
+  }
+
+  public clearHover() {
+    if (this.hoveredCard) {
+      this.unhoverCard(this.hoveredCard);
+      this.hoveredCard = null;
+      this.onHover(null);
     }
   }
 

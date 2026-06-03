@@ -1,20 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Geist+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Geist+Mono:wght@500&family=Montserrat:wght@800;900&display=swap');
 
-/* We'll use a reliable fallback for Metropolis if not found, typically Montserrat or Inter, 
-   but since it's a web project we assume we can load it or use local fallback */
-@font-face {
-  font-family: 'Metropolis';
-  src: url('https://fonts.cdnfonts.com/s/14511/Metropolis-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Metropolis';
-  src: url('https://fonts.cdnfonts.com/s/14511/Metropolis-ExtraBold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-}
+/* Fallback to Montserrat since Metropolis CDN is returning 404 */
 
 body {
   font-family: 'Hanken Grotesk', sans-serif;
@@ -28,7 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .display-xl {
-  font-family: 'Metropolis', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-display-xl);
   font-weight: 900;
   line-height: 1;
@@ -37,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .display-lg {
-  font-family: 'Metropolis', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-size-display-lg);
   font-weight: 800;
   line-height: 1.1;

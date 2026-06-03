@@ -44,7 +44,7 @@ export class ContactScene extends BaseScene {
   }
 
   update(_delta: number, _scrollProgress: number) {
-    this.uniforms.uTime.value = this.clock.getElapsedTime();
+    this.uniforms.uTime.value = this.getElapsedTime();
     this.uniforms.uMouse.value.lerp(this.targetMouse, 0.05);
     this.renderer.render(this.scene, this.camera);
   }

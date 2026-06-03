@@ -130,14 +130,14 @@ export class SceneManager {
         return;
       }
       
-      const delta = sceneData.instance.clock.getDelta();
+      const delta = sceneData.instance.getDelta();
       sceneData.instance.update(delta, 0); 
       
       sceneData.rafId = requestAnimationFrame(loop);
     };
     
     // Start loop
-    sceneData.instance.clock.start();
+    sceneData.instance.getDelta(); // reset delta
     sceneData.rafId = requestAnimationFrame(loop);
   }
 
